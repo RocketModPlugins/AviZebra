@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
+using Rocket.Core;
 using Rocket.Core.Assets;
 
 using UnityEngine;
@@ -12,7 +13,9 @@ namespace com.avirockets.unturned.AviZebra {
         private XMLFileAsset<WhitelistXml> _whitelistAsset;
 
         private void Awake() {
-            _whitelistAsset = new XMLFileAsset<WhitelistXml>(Path.Combine(ZebraPlugin.Self.Name, "AviZebra.whitelist.xml"));
+
+            _whitelistAsset = new XMLFileAsset<WhitelistXml>(
+                Path.Combine(Path.Combine(Environment.PluginsDirectory, ZebraPlugin.Self.Name), "AviZebra.whitelist.xml"));
             _whitelistAsset.Load();
         }
 
