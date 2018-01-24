@@ -1,0 +1,8 @@
+# Build files
+/bin
+/obj
+
+# OSX files
+.DS_Store
+
+/.idea
