@@ -28,6 +28,7 @@ namespace com.avirockets.unturned.AviZebra {
 
             Self = this;
 
+            Logger.Log("AviZebra Copyright (C) 2018 AviRockets", ConsoleColor.DarkMagenta);
             Logger.Log("Zebra came to the field", ConsoleColor.Green);
             Logger.Log("Join AviRockets Discord channel http://go.avirockets.com/discord - lots of awesome plugins await ;)", ConsoleColor.Cyan);
 
