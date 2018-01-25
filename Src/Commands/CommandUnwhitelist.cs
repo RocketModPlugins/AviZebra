@@ -36,7 +36,7 @@ namespace com.avirockets.unturned.AviZebra {
 
                 return;
             }
-            
+
             Provider.kick((CSteamID) id, ZebraPlugin.Self.Translate(ZebraPlugin.TK_KICK_REASON_UNWHITELISTED));
 
             ZebraPlugin.Self.Persister.Save();
@@ -45,17 +45,17 @@ namespace com.avirockets.unturned.AviZebra {
 
         }
 
-        public AllowedCaller AllowedCaller { get; } = AllowedCaller.Both;
+        public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
-        public string Name { get; } = "unwhitelist";
+        public string Name => "unwhitelist";
 
-        public string Help { get; } = "Unwhitelist SteamID from playing on server";
+        public string Help => "Unwhitelist SteamID from playing on server";
 
-        public string Syntax { get; } = "<steam ID>";
+        public string Syntax => "<steam ID>";
 
-        public List<string> Aliases { get; } = new List<string> {"uwl"};
+        public List<string> Aliases => new List<string> {"uwl"};
 
-        public List<string> Permissions { get; } = new List<string> {"avi.zebra.uwl"};
+        public List<string> Permissions => new List<string> {"avi.zebra.uwl"};
 
     }
 

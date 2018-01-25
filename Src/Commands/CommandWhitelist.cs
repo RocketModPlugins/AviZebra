@@ -40,17 +40,17 @@ namespace com.avirockets.unturned.AviZebra {
 
         }
 
-        public AllowedCaller AllowedCaller { get; } = AllowedCaller.Both;
+        public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
-        public string Name { get; } = "whitelist";
+        public string Name => "whitelist";
 
-        public string Help { get; } = "WhitelistXml SteamID to play on server";
+        public string Help => "WhitelistXml SteamID to play on server";
 
-        public string Syntax { get; } = "<steam ID>";
+        public string Syntax => "<steam ID>";
 
-        public List<string> Aliases { get; } = new List<string> {"wl"};
+        public List<string> Aliases => new List<string> {"wl"};
 
-        public List<string> Permissions { get; } = new List<string> {"avi.zebra.wl"};
+        public List<string> Permissions => new List<string> {"avi.zebra.wl"};
 
     }
 
