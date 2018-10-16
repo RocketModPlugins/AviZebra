@@ -11,7 +11,7 @@ using Steamworks;
 
 namespace com.avirockets.unturned.AviZebra {
 
-    public class ZebraPlugin : RocketPlugin /*<ZebraConfig>*/ {
+    public class ZebraPlugin : RocketPlugin {
 
         internal const string TK_ERR_STEAMID = "err_steamid";
         internal const string TK_STEAMID_WHITELISTED = "steamid_whitelisted";
@@ -28,9 +28,9 @@ namespace com.avirockets.unturned.AviZebra {
 
             Self = this;
 
-            Logger.Log("AviZebra Copyright (C) 2018 AviRockets", ConsoleColor.DarkMagenta);
+            Logger.Log("AviZebra Copyright © 2018 AviRockets", ConsoleColor.DarkMagenta);
             Logger.Log("Zebra came to the field", ConsoleColor.Green);
-            Logger.Log("Join AviRockets Discord channel http://go.avirockets.com/discord - lots of awesome plugins await ;)", ConsoleColor.Cyan);
+            Logger.Log("Join AviRockets Discord channel https://avi.pw/discord - lots of awesome plugins await ;)", ConsoleColor.Cyan);
 
             Persister = TryAddComponent<XmlPersister>();
 
@@ -48,25 +48,25 @@ namespace com.avirockets.unturned.AviZebra {
 
         }
 
-        public override TranslationList DefaultTranslations { get; } = new TranslationList {
+        public override TranslationList DefaultTranslations => new TranslationList {
             {TK_ERR_STEAMID, "Please input valid Steam ID"},
             {TK_STEAMID_WHITELISTED, "Steam ID {0} whitelisted!"},
             {TK_STEAMID_ALREADY_WHITELISTED, "Steam ID {0} is already whitelisted!"},
             {TK_STEAMID_UNWHITELISTED, "Steam ID {0} unwhitelisted!"},
-            {TK_STEAMID_NOT_WHITELISTED, "Steam ID {0} is not whitelisted!" },
+            {TK_STEAMID_NOT_WHITELISTED, "Steam ID {0} is not whitelisted!"},
             {TK_KICK_REASON_UNWHITELISTED, "no longer whitelisted. Bye!"}
         };
 
-        private void OnJoinRequested(CSteamID pSteamId, ref ESteamRejection? pRejectionReason) {
+        private void OnJoinRequested(CSteamID steamId, ref ESteamRejection? rejectionReason) {
 
-            string playerId = pSteamId.ToString();
+            string playerId = steamId.ToString();
 
             bool sayGoodbye = !Persister.PersistedIds.Contains(playerId);
 #if DEBUG
             Logger.Log($"Join requested from: {playerId}, saying goodbye: {sayGoodbye}");
 #endif
             if (sayGoodbye) {
-                pRejectionReason = ESteamRejection.WHITELISTED;
+                rejectionReason = ESteamRejection.WHITELISTED;
             }
 
         }

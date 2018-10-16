@@ -17,14 +17,14 @@ namespace com.avirockets.unturned.AviZebra {
     [UsedImplicitly]
     public class CommandUnwhitelist : IRocketCommand {
 
-        public void Execute(IRocketPlayer pCaller, string[] pCommand) {
+        public void Execute(IRocketPlayer caller, string[] command) {
 
-            ulong? id = pCommand.GetCSteamIDParameter(0);
+            ulong? id = command.GetCSteamIDParameter(0);
             if (id == null) {
 
-                UnturnedChat.Say(pCaller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_ERR_STEAMID), Color.red);
+                UnturnedChat.Say(caller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_ERR_STEAMID), Color.red);
 
-                throw new WrongUsageOfCommandException(pCaller, this);
+                throw new WrongUsageOfCommandException(caller, this);
             }
 
             string stringId = id.ToString();
@@ -32,7 +32,7 @@ namespace com.avirockets.unturned.AviZebra {
             IList<string> ids = ZebraPlugin.Self.Persister.PersistedIds;
             if (!ids.Remove(stringId)) {
 
-                UnturnedChat.Say(pCaller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_STEAMID_NOT_WHITELISTED, stringId), Color.yellow);
+                UnturnedChat.Say(caller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_STEAMID_NOT_WHITELISTED, stringId), Color.yellow);
 
                 return;
             }
@@ -41,7 +41,7 @@ namespace com.avirockets.unturned.AviZebra {
 
             ZebraPlugin.Self.Persister.Save();
 
-            UnturnedChat.Say(pCaller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_STEAMID_UNWHITELISTED, stringId), Color.green);
+            UnturnedChat.Say(caller, ZebraPlugin.Self.Translate(ZebraPlugin.TK_STEAMID_UNWHITELISTED, stringId), Color.green);
 
         }
 

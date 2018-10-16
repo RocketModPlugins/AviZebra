@@ -42,7 +42,6 @@
     <Compile Include="Src\Models\WhitelistXml.cs" />
     <Compile Include="Src\Persisters\IPersister.cs" />
     <Compile Include="Src\Persisters\XmlPersister.cs" />
-    <Compile Include="Src\Plugin\ZebraConfig.cs" />
     <Compile Include="Src\Plugin\ZebraPlugin.cs" />
   </ItemGroup>
   <ItemGroup>

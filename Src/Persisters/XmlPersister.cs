@@ -13,7 +13,6 @@ namespace com.avirockets.unturned.AviZebra {
         private XMLFileAsset<WhitelistXml> _whitelistAsset;
 
         private void Awake() {
-
             _whitelistAsset = new XMLFileAsset<WhitelistXml>(
                 Path.Combine(Path.Combine(Environment.PluginsDirectory, ZebraPlugin.Self.Name), "AviZebra.whitelist.xml"));
             _whitelistAsset.Load();
